@@ -12,6 +12,10 @@ ApplicationWindow {
     color: "#1E1E1E"
     visibility: "FullScreen"
     property int nextSpeed: 60
+    // currentSpeed is updated from C++ (main.cpp) via setProperty
+    property int currentSpeed: 60
+    property int speedLimit: 50
+    property int currBatery: 75
 
     function generateRandom(maxLimit = 70){
         let rand = Math.random() * maxLimit;
@@ -20,9 +24,9 @@ ApplicationWindow {
     }
 
     function speedColor(value){
-        if(value < 60 ){
+        if(value < speedLimit ){
             return "green"
-        } else if(value > 60 && value < 150){
+        } else if(value > speedLimit && value < speedLimit + 20){
             return "red"
         }else{
             return "Red"
@@ -103,7 +107,8 @@ ApplicationWindow {
             width: 450
             height: 450
             property bool accelerating
-            value: accelerating ? maximumValue : 0
+            // Bind the gauge value to the currentSpeed property so C++ can update it
+            value: currentSpeed
             maximumValue: 300
 
             anchors.top: parent.top

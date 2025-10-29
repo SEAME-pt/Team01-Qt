@@ -46,7 +46,8 @@ A custom QQuickPaintedItem that provides:
 
 #### Gauge (QML)
 A styled CircularGauge featuring:
-- Color-coded speed zones (Green: 0-60, Yellow: 60-150, Red: 150+)
+- Color-coded speed zones (Green: 0-SpeedLimit, \
+Yellow: SpeedLimit-SpeedLimit+20, Red: > SpeedLimit+20)
 - Animated needle with glow effect
 - Custom tickmarks and labels
 - Gradient arc visualization
@@ -83,20 +84,6 @@ make
 ./Car_1
 ```
 
-## 🎮 Usage
-
-### Keyboard Controls
-| Key | Action |
-|-----|--------|
-| `Space` | Accelerate vehicle |
-| `Enter`/`Return` | Brake/Decelerate |
-| `Ctrl+Q` | Exit application |
-
-### Interactive Elements
-- **Headlight Icon**: Click to toggle headlight status
-- **Speedometer**: Responds to keyboard input for acceleration
-- **Battery Gauge**: Shows charging status with animation
-
 ## 🏗️ Project Structure
 
 ```
@@ -126,73 +113,20 @@ The dashboard uses a dark theme with accent colors:
 - **Success Color**: `#32D74B` (Green)
 - **Warning Color**: `yellow`
 - **Danger Color**: `Red`
-
-### Fonts
-- **Primary Font**: Inter
-- **Weight**: Normal, DemiBold, Bold
-- **Sizes**: 20px - 134px
-
+	
 ### Modifying Components
 
 #### Speed Limits
-Edit the `speedColor()` function in `main.qml`:
-```qml
-function speedColor(value){
-    if(value < 60 ){
-        return "green"
-    } else if(value > 60 && value < 150){
-        return "yellow"
-    } else {
-        return "Red"
-    }
-}
-```
+Set the speedLimit property by doing
+`root->setProperty("speedLimit", <VALUE>);`
+in main.cpp:
 
-#### Battery Display
-Modify the RadialBar properties in `main.qml`:
-```qml
-RadialBar {
-    maxValue: 100
-    progressColor: "#01E4E0"
-    dialWidth: 17
-    // ... other properties
-}
-```
+#### Current Speed
+Set the currentSpeed property by doing
+`root->setProperty("currentSpeed", <VALUE>);`
+in main.cpp:
 
-## 🔧 Development
 
-### Adding New Gauges
-1. Create a new QML component similar to `Gauge.qml`
-2. Register any C++ components in `main.cpp`
-3. Add to the main interface in `main.qml`
-
-### Custom C++ Components
-Follow the RadialBar pattern:
-1. Inherit from `QQuickPaintedItem`
-2. Define Q_PROPERTY macros for QML binding
-3. Implement paint() method for custom drawing
-4. Register with `qmlRegisterType`
-
-### Asset Management
-- Add new SVG/PNG files to the `assets/` directory
-- Update `qml.qrc` to include new resources
-- Reference with `qrc:/assets/filename.ext`
-
-## 🐛 Troubleshooting
-
-### Common Issues
-
-1. **Build Errors**
-   - Ensure Qt development packages are installed
-   - Check Qt version compatibility (5.15+)
-
-2. **Missing Assets**
-   - Verify all files are included in `qml.qrc`
-   - Check file paths use forward slashes
-
-3. **Performance Issues**
-   - Enable hardware acceleration
-   - Reduce timer intervals if needed
 
 ### Debug Mode
 Run with debug output:
