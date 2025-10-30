@@ -26,11 +26,10 @@ int main(int argc, char *argv[])
 
         QTimer *timer = new QTimer(&app);
         QObject::connect(timer, &QTimer::timeout, [root]() {
-            int speed = QRandomGenerator::global()->bounded(0, 301);
-            // Set the property on the root QML object: 'currentSpeed'
-            root->setProperty("currentSpeed", speed);
+            int speed = QRandomGenerator::global()->bounded(-5, 5);
+            root->setProperty("currentSpeed", root->property("currentSpeed").toInt() + speed);
         });
-        timer->start(800); // update every 800 ms
+        timer->start(1000); // update every 1000 ms
     }
 
     return app.exec();

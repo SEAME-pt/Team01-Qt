@@ -16,6 +16,10 @@ ApplicationWindow {
     property int currentSpeed: 60
     property int speedLimit: 50
     property int currBatery: 75
+    property double avgSpeed: 60
+    property double fuelUsage: 35
+    property double distance: 188.75
+    property double temp: 22.4
 
     function generateRandom(maxLimit = 70){
         let rand = Math.random() * maxLimit;
@@ -25,7 +29,7 @@ ApplicationWindow {
 
     function speedColor(value){
         if(value < speedLimit ){
-            return "green"
+            return "red"
         } else if(value > speedLimit && value < speedLimit + 20){
             return "red"
         }else{
@@ -131,7 +135,7 @@ ApplicationWindow {
             height: 130
             radius: height/2
             color: "#D9D9D9"
-            border.color: speedColor(maxSpeedlabel.text)
+            border.color: "Red"
             border.width: 10
 
             anchors.horizontalCenter: parent.horizontalCenter
@@ -372,7 +376,7 @@ ApplicationWindow {
             spanAngle: 3.6 * value
             minValue: 0
             maxValue: 100
-            value: accelerating ? maxValue : 65
+            value: currBatery
             textFont {
                 family: "inter"
                 italic: false
@@ -428,7 +432,7 @@ ApplicationWindow {
 
                 ColumnLayout{
                     Label{
-                        text: "188 KM"
+                        text: distance + " KM"
                         font.pixelSize: 30
                         font.family: "Inter"
                         font.bold: Font.Normal
@@ -455,7 +459,7 @@ ApplicationWindow {
 
                 ColumnLayout{
                     Label{
-                        text: "34 kwh/km"
+                        text: fuelUsage + " kwh/km"
                         font.pixelSize: 30
                         font.family: "Inter"
                         font.bold: Font.Normal
@@ -482,7 +486,7 @@ ApplicationWindow {
 
                 ColumnLayout{
                     Label{
-                        text: "78 kmh"
+                        text: avgSpeed + " kmh"
                         font.pixelSize: 30
                         font.family: "Inter"
                         font.bold: Font.Normal
