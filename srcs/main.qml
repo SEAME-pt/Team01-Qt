@@ -59,21 +59,6 @@ ApplicationWindow {
                 horizontalCenter: parent.horizontalCenter
             }
 
-            Image {
-                id: headLight
-                property bool indicator: false
-                width: 42.5
-                height: 38.25
-                anchors{
-                    top: parent.top
-                    topMargin: 25
-                    leftMargin: 230
-                    left: parent.left
-                }
-                source: indicator ? "qrc:/assets/Low beam headlights.svg" : "qrc:/assets/Low_beam_headlights_white.svg"
-                Behavior on indicator { NumberAnimation { duration: 300 }}
-            }
-
             Label{
                 id: currentTime
                 text: Qt.formatDateTime(new Date(), "hh:mm")

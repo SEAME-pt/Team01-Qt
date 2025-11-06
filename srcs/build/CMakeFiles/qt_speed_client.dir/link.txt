@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/qt_speed_client.dir/qt_speed_client_autogen/mocs_compilation.cpp.o CMakeFiles/qt_speed_client.dir/main.cpp.o -o qt_speed_client  /usr/lib/x86_64-linux-gnu/libQt6Widgets.so.6.2.4 /usr/lib/x86_64-linux-gnu/libQt6Gui.so.6.2.4 /usr/lib/x86_64-linux-gnu/libQt6Core.so.6.2.4 /usr/lib/x86_64-linux-gnu/libGLX.so /usr/lib/x86_64-linux-gnu/libOpenGL.so 

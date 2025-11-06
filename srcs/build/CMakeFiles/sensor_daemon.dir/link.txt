@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/sensor_daemon.dir/sensor_daemon_autogen/mocs_compilation.cpp.o CMakeFiles/sensor_daemon.dir/sensor_daemon.cpp.o -o sensor_daemon 

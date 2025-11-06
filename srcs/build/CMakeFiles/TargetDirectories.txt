@@ -1,0 +1,6 @@
+/home/team1/Team01-Qt/srcs/build/CMakeFiles/sensor_daemon.dir
+/home/team1/Team01-Qt/srcs/build/CMakeFiles/qt_speed_client.dir
+/home/team1/Team01-Qt/srcs/build/CMakeFiles/edit_cache.dir
+/home/team1/Team01-Qt/srcs/build/CMakeFiles/rebuild_cache.dir
+/home/team1/Team01-Qt/srcs/build/CMakeFiles/sensor_daemon_autogen.dir
+/home/team1/Team01-Qt/srcs/build/CMakeFiles/qt_speed_client_autogen.dir

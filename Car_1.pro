@@ -1,10 +1,10 @@
 QT += quick qml
 
 SOURCES += \
-        main.cpp \
-        radialbar.cpp
+        srcs/main.cpp \
+        srcs/radialbar.cpp
 
-RESOURCES += qml.qrc
+RESOURCES += srcs/qml.qrc
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH =
@@ -18,4 +18,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
-	radialbar.h
+	./incs/radialbar.h
+        ./uprotocol.h

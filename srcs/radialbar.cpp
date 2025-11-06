@@ -1,5 +1,5 @@
 #include <QPainter>
-#include "radialbar.h"
+#include "../incs/radialbar.h"
 
 RadialBar::RadialBar(QQuickItem *parent)
     : QQuickPaintedItem(parent),
